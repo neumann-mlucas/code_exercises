@@ -18,9 +18,9 @@ with open(DATA_FILE, "r") as f:
     data = f.readline().strip()
 
 # Assert sample
-n, k = list(map(int, SAMPLE_DATA.split(" ")))
+n, k = map(int, SAMPLE_DATA.split(" "))
 assert str(fib(n, k)) == SAMPLE_OUTPUT
 
 # Produce output
-n, k = list(map(int, data.split(" ")))
+n, k = map(int, data.split(" "))
 print(fib(n, k))
