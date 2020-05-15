@@ -11,10 +11,10 @@ def pairwise(iterable):
 
 
 def gen_seqs(data):
-    id_lines = (n for (n, l) in enumerate(data) if l.startswith(">"))
+    idx_lines = (n for (n, l) in enumerate(data) if l.startswith(">"))
     # add last line to iter
-    id_lines = chain(id_lines, (len(data),))
-    for i, j in pairwise(id_lines):
+    idx_lines = chain(idx_lines, (len(data),))
+    for i, j in pairwise(idx_lines):
         id_seq, seq = data[i], "".join(data[i + 1 : j])
         yield id_seq, seq
 
