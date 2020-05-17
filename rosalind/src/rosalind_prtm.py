@@ -1,17 +1,10 @@
-def format_prtm(func):
-    def wrapper(*args, **kwargs):
-        output = str(round(func(*args, **kwargs), 3))
-        return output
-
-    return wrapper
-
-
-@format_prtm
 def prtm(seq):
-    return sum(mass_mapping[aa] for aa in seq)
+    mass = sum(mass_mapping[aa] for aa in seq)
+    return f"{mass:.3f}"
 
 
 DATA_FILE = "dat/rosalind_prtm.txt"
+
 SAMPLE_DATA = "SKADYEK"
 SAMPLE_OUTPUT = "821.392"
 
@@ -43,6 +36,6 @@ if __name__ == "__main__":
     assert prtm(SAMPLE_DATA) == SAMPLE_OUTPUT
     # Read data
     with open(DATA_FILE, "r") as f:
-        seq = f.readline().strip()
+        data = f.readline().strip()
     # Produce output
-    print(prtm(seq))
+    print(prtm(data))

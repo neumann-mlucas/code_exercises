@@ -1,4 +1,4 @@
-def hamm_distance(seqs):
+def hamm(seqs):
     distance = sum(0 if a == b else 1 for (a, b) in zip(*seqs))
     return str(distance)
 
@@ -9,15 +9,12 @@ SAMPLE_DATA = """GAGCCTACTAACGGGAT
 CATCGTAATGACGGCCT"""
 SAMPLE_OUTPUT = "7"
 
-translate_dict = {ord("T"): ord("U")}
-
-# Read data
-with open(DATA_FILE, "r") as f:
-    seqs = [l.strip() for l in f.readlines()]
-
-# Assert sample
-SAMPLE_DATA = SAMPLE_DATA.split()
-assert hamm_distance(SAMPLE_DATA) == SAMPLE_OUTPUT
-
-# Produce output
-print(hamm_distance(seqs))
+if __name__ == "__main__":
+    # Assert sample
+    SAMPLE_DATA = SAMPLE_DATA.split()
+    assert hamm(SAMPLE_DATA) == SAMPLE_OUTPUT
+    # Read data
+    with open(DATA_FILE, "r") as f:
+        data = [l.strip() for l in f.readlines()]
+    # Produce output
+    print(hamm(data))

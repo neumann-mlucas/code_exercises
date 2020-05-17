@@ -1,18 +1,17 @@
 from itertools import tee
 
 
-def pairwise(iterable):
-    "s -> (s0,s1), (s1,s2), (s2, s3), ..."
-    a, b = tee(iterable)
-    next(b, None)
-    return zip(a, b)
-
-
-def translate(seq):
+def prot(seq):
     codons = (seq[i:j] for i, j in pairwise(range(0, len(seq) + 1, 3)))
     aa_seq = "".join(codon_table[c] for c in codons)
     # Split sequence at a stop codon ('!')
     return aa_seq[: aa_seq.find("!")]
+
+
+def pairwise(iterable):
+    a, b = tee(iterable)
+    next(b, None)
+    return zip(a, b)
 
 
 DATA_FILE = "dat/rosalind_prot.txt"
@@ -87,12 +86,11 @@ codon_table = {
     "UUU": "F",
 }
 
-# Read data
-with open(DATA_FILE, "r") as f:
-    seq = f.readline().strip()
-
-# Assert sample
-assert translate(SAMPLE_DATA) == SAMPLE_OUTPUT
-
-# Produce output
-print(translate(seq))
+if __name__ == "__main__":
+    # Assert sample
+    assert prot(SAMPLE_DATA) == SAMPLE_OUTPUT
+    # Read data
+    with open(DATA_FILE, "r") as f:
+        data = f.readline().strip()
+    # Produce output
+    print(prot(data))

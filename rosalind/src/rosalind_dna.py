@@ -1,7 +1,7 @@
 from collections import Counter
 
 
-def count_nucleotides(seq):
+def dna(seq):
     count = Counter(seq).items()
     numbers = map(lambda x: str(x[1]), sorted(count))
     return " ".join(numbers)
@@ -12,12 +12,11 @@ DATA_FILE = "dat/rosalind_dna.txt"
 SAMPLE_DATA = "AGCTTTTCATTCTGACTGCAACGGGCAATATGTCTCTGTGTGGATTAAAAAAAGAGTGTCTGATAGCAGC"
 SAMPLE_OUTPUT = "20 12 17 21"
 
-# Read data
-with open(DATA_FILE, "r") as f:
-    seq = f.readline().strip()
-
-# Assert sample
-assert count_nucleotides(SAMPLE_DATA) == SAMPLE_OUTPUT
-
-# Produce output
-print(count_nucleotides(seq))
+if __name__ == "__main__":
+    # Assert sample
+    assert dna(SAMPLE_DATA) == SAMPLE_OUTPUT
+    # Read data
+    with open(DATA_FILE, "r") as f:
+        data = f.readline().strip()
+    # Produce output
+    print(dna(data))

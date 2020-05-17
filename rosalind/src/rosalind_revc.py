@@ -1,7 +1,5 @@
-def reverse_complement(seq):
-    # complement
-    complement = seq.translate(translate_dict)
-    # reverse
+def revc(seq):
+    complement = seq.translate(revc_mapping)
     return complement[::-1]
 
 
@@ -10,18 +8,17 @@ DATA_FILE = "dat/rosalind_rna.txt"
 SAMPLE_DATA = "AAAACCCGGT"
 SAMPLE_OUTPUT = "ACCGGGTTTT"
 
-translate_dict = {
+revc_mapping = {
     ord("A"): ord("T"),
     ord("C"): ord("G"),
     ord("G"): ord("C"),
     ord("T"): ord("A"),
 }
-# Read data
-with open(DATA_FILE, "r") as f:
-    seq = f.readline().strip()
-
-# Assert sample
-assert reverse_complement(SAMPLE_DATA) == SAMPLE_OUTPUT
-
-# Produce output
-print(reverse_complement(seq))
+if __name__ == "__main__":
+    # Assert sample
+    assert revc(SAMPLE_DATA) == SAMPLE_OUTPUT
+    # Read data
+    with open(DATA_FILE, "r") as f:
+        data = f.readline().strip()
+    # Produce output
+    print(revc(data))

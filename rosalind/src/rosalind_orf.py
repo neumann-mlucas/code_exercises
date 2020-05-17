@@ -1,17 +1,19 @@
-import re
 from itertools import islice, tee
+import re
 
 
-def to_revc(seq):
+def orf(seq):
+    proteins = set()
+    for dna in (seq, revc(seq)):
+        starts = (aa.start() for aa in re.finditer("ATG", dna))
+        proteins.update(set(translate(dna[s:]) for s in starts))
+    proteins.discard("")
+    return proteins
+
+
+def revc(seq):
     complement = seq.translate(complement_map)
     return complement[::-1]
-
-
-def pairwise(iterable):
-    "s -> (s0,s1), (s1,s2), (s2, s3), ..."
-    a, b = tee(iterable)
-    next(b, None)
-    return zip(a, b)
 
 
 def translate(seq):
@@ -20,16 +22,13 @@ def translate(seq):
     return aa[: aa.find("!")] if "!" in aa else ""
 
 
-def transcript(seq):
-    proteins = set()
-    for dna in (seq, to_revc(seq)):
-        starts = (aa.start() for aa in re.finditer("ATG", dna))
-        proteins.update(set(translate(dna[s:]) for s in starts))
-    proteins.discard("")
-    return proteins
+def pairwise(iterable):
+    a, b = tee(iterable)
+    next(b, None)
+    return zip(a, b)
 
 
-def prot_to_string(proteins):
+def to_string(proteins):
     return "\n".join(str(p) for p in proteins if p)
 
 
@@ -118,14 +117,12 @@ codon_table = {
     "TTT": "F",
 }
 
-# Read data
-with open(DATA_FILE, "r") as f:
-    id_seq, *seq = [l.strip() for l in f.readlines()]
-    seq = "".join(seq)
-
-# Assert sample
-_, SAMPLE_DATA = SAMPLE_DATA.split()
-assert transcript(SAMPLE_DATA) == set(SAMPLE_OUTPUT.split())
-
-# Produce output
-print(prot_to_string(transcript(seq)))
+if __name__ == "__main__":
+    # Assert sample
+    _, SAMPLE_DATA = SAMPLE_DATA.split()
+    assert orf(SAMPLE_DATA) == set(SAMPLE_OUTPUT.split())
+    # Read data
+    with open(DATA_FILE, "r") as f:
+        data = "".join(l.strip() for l in f.readlines() if not l.startswith(">"))
+    # Produce output
+    print(to_string(orf(data)))

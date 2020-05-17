@@ -18,14 +18,13 @@ DATA_FILE = "dat/rosalind_fibd.txt"
 SAMPLE_DATA = "6 3"
 SAMPLE_OUTPUT = "4"
 
-# Read data
-with open(DATA_FILE, "r") as f:
-    data = f.readline().strip()
-
-# Assert sample
-n, m = map(int, SAMPLE_DATA.split(" "))
-assert str(fibd(n, m)) == SAMPLE_OUTPUT
-
-# Produce output
-n, m = map(int, data.split(" "))
-print(fibd(n, m))
+if __name__ == "__main__":
+    # Assert sample
+    n, m = map(int, SAMPLE_DATA.split(" "))
+    assert str(fibd(n, m)) == SAMPLE_OUTPUT
+    # Read data
+    with open(DATA_FILE, "r") as f:
+        data = f.readline().strip()
+    # Produce output
+    n, m = map(int, data.split(" "))
+    print(fibd(n, m))
