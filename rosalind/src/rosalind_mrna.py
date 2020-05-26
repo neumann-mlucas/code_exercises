@@ -6,7 +6,7 @@ def mrna(seq):
     c = Counter(codon_table.values())
     possible_codons = map(lambda x: c[x], seq)
     possible_seqs = 3 * reduce(lambda x, y: x * y, possible_codons)
-    return possible_seqs % 1_000_000
+    return str(possible_seqs % 1_000_000)
 
 
 DATA_FILE = "dat/rosalind_mrna.txt"
@@ -83,7 +83,7 @@ codon_table = {
 
 if __name__ == "__main__":
     # Assert sample
-    assert str(mrna(SAMPLE_DATA)) == SAMPLE_OUTPUT
+    assert mrna(SAMPLE_DATA) == SAMPLE_OUTPUT
     # Read data
     with open(DATA_FILE, "r") as f:
         data = f.readline().strip()
