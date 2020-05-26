@@ -5,7 +5,7 @@ from itertools import chain, islice, takewhile, tee
 def lcsm(data):
     all_seqs = gen_seqs(data)
     # Discard identifier
-    _, all_seqs = list(zip(*all_seqs))
+    _, all_seqs = zip(*all_seqs)
     # Compare smallest sequence to all others
     seq1 = min(all_seqs, key=lambda x: len(x))
     all_subs = (get_all_substrings(seq1, seq2) for seq2 in all_seqs)
@@ -97,4 +97,4 @@ if __name__ == "__main__":
     with open(DATA_FILE, "r") as f:
         data = [l.strip() for l in f.readlines()]
     # Produce output
-    print(str(lcsm(data)))
+    print(*lcsm(data))
