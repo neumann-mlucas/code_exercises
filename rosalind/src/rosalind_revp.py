@@ -8,7 +8,6 @@ def format_revp(func):
 
 @format_revp
 def revp(seq):
-    breakpoint()
     idxs = (
         (i + 1, seq[i:j]) for i in range(len(seq)) for j in range(i + 4, len(seq) + 1)
     )
