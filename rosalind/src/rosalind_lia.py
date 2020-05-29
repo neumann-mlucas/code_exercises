@@ -1,4 +1,4 @@
-from functools import reduce
+from math import factorial
 
 
 def lia(k, N):
@@ -11,14 +11,7 @@ def prob(n, k):
 
 
 def binomial(n, r):
-    return fact(n) / (fact(r) * fact(n - r))
-
-
-def fact(n):
-    if n < 2:
-        return 1
-    else:
-        return reduce(lambda x, y: x * y, range(1, n + 1))
+    return factorial(n) / (factorial(r) * factorial(n - r))
 
 
 DATA_FILE = "dat/rosalind_lia.txt"
