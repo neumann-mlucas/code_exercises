@@ -1,3 +1,8 @@
 ispalindrome(n) = digits(n) == reverse(digits(n))
-M = hcat(100:999) .* reshape(100:999,(1,900))
-filter(ispalindrome,M) |> maximum |> println
+
+function answer(range)
+    M = hcat(range) .* reshape(range,(1,length(range)))
+    filter(ispalindrome,M) |> maximum
+end
+
+answer(100:999) |> print

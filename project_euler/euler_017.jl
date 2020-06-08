@@ -17,5 +17,9 @@ function int_to_word(n)
     end
 end
 
-reduce(*, map(int_to_word,1:1000)) |> length |> println
+function answer(range)
+    reduce(*, map(int_to_word,range)) |> length
+end
+
+answer(1:1_000) |> print
 

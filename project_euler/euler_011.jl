@@ -1,4 +1,3 @@
-
 data = open("dat/euler_011.txt") do file
     readlines(file)
 end
@@ -19,11 +18,13 @@ path_b = (x,y)->(map(z->CartesianIndex(x+z,y),0:3))
 path_c = (x,y)->(map(z->CartesianIndex(x+z,y+z),0:3))
 path_d = (x,y)->(map(z->CartesianIndex(x-z,y+z),0:3))
 
-let m = 0
+function answer(matrix)
+    m = 0
     for path in (path_a,path_b,path_c,path_d)
         idx = filter(out_of_bounds,map(x->path(x...),idxs))
-        m = max(m,maximum(map(x->reduce(*,M[x]),idx)))
+        m = max(m,maximum(map(x->reduce(*,matrix[x]),idx)))
     end
-    print(m)
+    return m
 end
 
+answer(M) |> print

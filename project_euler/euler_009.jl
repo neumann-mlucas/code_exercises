@@ -1,5 +1,8 @@
 get_pythagorean(m,n) = m^2-n^2, 2*m*n, m^2+n^2
-pythagoreans = [get_pythagorean(m,n) for m in 1:100 for n in 1:m]
-        filter(x->sum(x) == 1000,pythagoreans) .|> x->reduce(*,x) |> println
+condition(x) = x[1]>x[2] && sum(get_pythagorean(x...)) == 1000
 
+function answer(range)
+    Base.Iterators.product(range,range) |> collect |> x->filter(condition,x) |> first |> x->reduce(*,get_pythagorean(x...))
+end
 
+answer(1:100) |> print
