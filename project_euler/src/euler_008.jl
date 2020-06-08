@@ -1,4 +1,4 @@
-data = open("dat/euler_008.jl") do file
+data = open("dat/euler_008.txt") do file
     readline(file)
 end
 data = parse(BigInt, data) |> digits
