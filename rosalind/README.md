@@ -1,7 +1,8 @@
-Solutions for [Rosalind's code problems](http://rosalind.info/)
+### Solutions for [Rosalind's code problems](http://rosalind.info/)
 
-- all code in pure python (no third-party libraries)
-- scripts must be execute in the base directory (e.g. `python scr/rosalind_dna.py`)
-- code formated with black
-- problem's example is asserted before computing the main result
-- no imports from other scripts in the code base
+- All solution written pure Python, no third party packages.
+- My main goals here are: 1) write readable code 2) try FP style code 3) learn bio-info.
+- Scripts must be execute in the base directory (`rosalind/`), `dat/` directory contains problem's inputs.
+- All code formated with black.
+- The example given in the problem is always asserted before computing the main result.
+- No imports from other scripts in the repository.
