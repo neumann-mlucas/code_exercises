@@ -26,6 +26,8 @@ Solutions = (
 ("euler_020.jl", "648"),
 ("euler_021.jl", "31626"),
 ("euler_022.jl", "871198282"),
+("euler_023.jl", "4179871"),
+("euler_024.jl", "2783915460"),
 )
 
 for (filename, solution) in Solutions
