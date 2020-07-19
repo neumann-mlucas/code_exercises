@@ -1,6 +1,8 @@
 using Test
 using JuliaFormatter
 
+format("src/")
+
 #= Simple (and dumb) script to check solutions =#
 
 Solutions = (
@@ -28,6 +30,12 @@ Solutions = (
 ("euler_022.jl", "871198282"),
 ("euler_023.jl", "4179871"),
 ("euler_024.jl", "2783915460"),
+("euler_025.jl", "4782"),
+("euler_026.jl", "983"),
+("euler_027.jl", "-59231"),
+("euler_028.jl", "669171001"),
+("euler_029.jl", "9183"),
+("euler_030.jl", "443839"),
 )
 
 for (filename, solution) in Solutions
@@ -35,4 +43,3 @@ for (filename, solution) in Solutions
     println("$filename -- OK")
 end
 
-format("src/")
