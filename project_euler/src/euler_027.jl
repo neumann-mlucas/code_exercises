@@ -1,19 +1,16 @@
-isprime(n) = map(x -> n % x != 0, 2:isqrt(n)) |> all
+import Base.Iterators: product, takewhile
 
-
-function quadratic(a, b)
-    fn(x) = x^2 + a * x + b
-end
+is_prime(n) = n > 0  && all(x -> n % x != 0, 2:isqrt(n))
+quadratic(a, b) = fn(x) = x^2 + a * x + b
 
 function quadratic_primes(eq)
-    map(eq, 0:1000) |>
-    x -> Base.Iterators.takewhile(y -> (y > 0 && isprime(y)), x) |> collect |> length
+    takewhile(is_prime, (eq(x) for x in 0:1_000)) |> collect |> length
 end
 
 function answer(lim)
     fn(x, y) = (quadratic_primes(quadratic(x, y)), x, y)
 
-    Base.Iterators.product(-lim:lim, -lim:lim) |>
+    product(-lim:lim, filter(is_prime, 1:lim)) |>
     x -> map(y -> fn(y...), x) |> maximum |> x -> x[2] * x[3]
 
 end
