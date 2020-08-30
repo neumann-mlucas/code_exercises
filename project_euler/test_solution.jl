@@ -46,10 +46,20 @@ Solutions = (
 ("euler_038.jl", "932718654"),
 ("euler_039.jl", "840"),
 ("euler_040.jl", "210"),
+("euler_041.jl", "7652413"),
+("euler_042.jl", "162"),
+# ("euler_043.jl", "16695334890"),
+("euler_044.jl", "5482660"),
+("euler_045.jl", "1533776805"),
 )
 
 for (filename, solution) in Solutions
+
     @test read(`julia src/$filename`, String) == solution
     println("$filename -- OK")
+
+    @time read(`julia src/$filename`, String)
+    println("\n")
+
 end
 
