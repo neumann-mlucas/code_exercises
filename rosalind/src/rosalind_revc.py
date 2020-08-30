@@ -14,6 +14,7 @@ revc_mapping = {
     ord("G"): ord("C"),
     ord("T"): ord("A"),
 }
+
 if __name__ == "__main__":
     # Assert sample
     assert revc(SAMPLE_DATA) == SAMPLE_OUTPUT
