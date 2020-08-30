@@ -6,7 +6,7 @@ is_abundant(n) = n < (sum_divisors(n) - n)
 
 function answer()
     abundant = filter(is_abundant, 1:28123)
-    map(sum, product(abundant, abundant)) |> x->setdiff(1:28123, x) |> sum
+    map(sum, product(abundant, abundant)) |> x -> setdiff(1:28123, x) |> sum
 end
 
-@time answer() |> print
+answer() |> print
