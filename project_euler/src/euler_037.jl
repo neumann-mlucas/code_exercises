@@ -1,6 +1,6 @@
 import Base.Iterators: map, zip, flatten
 
-is_prime(n) = map(x -> n % x != 0, 2:isqrt(n)) |> all
+is_prime(n) = all(x -> n % x != 0, 2:isqrt(n))
 str_prime(s) = s != "1" && is_prime(parse(Int64, s))
 
 function is_truncatable(n)

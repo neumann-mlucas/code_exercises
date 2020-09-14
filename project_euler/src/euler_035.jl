@@ -1,5 +1,5 @@
 to_integer(n) = map(x -> x[2] * 10^(x[1] - 1), enumerate(n)) |> sum
-is_prime(n) = map(x -> n % x != 0, 2:isqrt(n)) |> all
+is_prime(n) = all(x -> n % x != 0, 2:isqrt(n))
 
 function all_rotations(n)
     shifts = length(digits(n)) - 1

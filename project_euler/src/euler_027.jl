@@ -1,10 +1,10 @@
 import Base.Iterators: product, takewhile
 
-is_prime(n) = n > 0  && all(x -> n % x != 0, 2:isqrt(n))
+is_prime(n) = n > 0 && all(x -> n % x != 0, 2:isqrt(n))
 quadratic(a, b) = fn(x) = x^2 + a * x + b
 
 function quadratic_primes(eq)
-    takewhile(is_prime, (eq(x) for x in 0:1_000)) |> collect |> length
+    takewhile(is_prime, (eq(x) for x = 0:1_000)) |> collect |> length
 end
 
 function answer(lim)

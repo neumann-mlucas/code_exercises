@@ -1,5 +1,4 @@
-import Base.Iterators.product
-import Base.Iterators.filter
+import Base.Iterators: filter, product
 
 function do_cancel(m, n)
     a, b = divrem(m, 10)
