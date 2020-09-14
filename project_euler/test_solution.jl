@@ -51,6 +51,11 @@ Solutions = (
 # ("euler_043.jl", "16695334890"),
 ("euler_044.jl", "5482660"),
 ("euler_045.jl", "1533776805"),
+("euler_046.jl", "5777"),
+("euler_047.jl", "134043"),
+("euler_048.jl", "9110846700"),
+("euler_049.jl", "296962999629"),
+("euler_050.jl", "997651"),
 )
 
 for (filename, solution) in Solutions
@@ -58,8 +63,8 @@ for (filename, solution) in Solutions
     @test read(`julia src/$filename`, String) == solution
     println("$filename -- OK")
 
-    @time read(`julia src/$filename`, String)
-    println("\n")
+    # @time read(`julia src/$filename`, String)
+    # println("\n")
 
 end
 
