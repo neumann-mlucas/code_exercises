@@ -61,6 +61,11 @@ Solutions = (
 ("euler_053.jl", "4075"),
 ("euler_054.jl", "376"),
 ("euler_055.jl", "249"),
+("euler_056.jl", "972"),
+("euler_057.jl", "153"),
+("euler_058.jl", "26241"),
+("euler_059.jl", "129448"),
+("euler_060.jl", "26033"),
 )
 
 for (filename, solution) in Solutions[51:end]
