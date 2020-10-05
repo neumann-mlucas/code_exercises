@@ -6,17 +6,11 @@ import Base.Iterators: filter, flatten
 function sieve(n::Int)
     isprime = trues(n)
     isprime[1] = false
-    for p = 2:n
-        if isprime[p]
-            j = p * p
-            if j > n
-                return findall(isprime)
-            else
-                for k = j:p:n
-                    isprime[k] = false
-                end
-            end
-        end
+    foreach(x -> (isprime[x] = false), 4:2:n)
+    for p = 3:2:n
+        (!isprime[p]) ? continue :
+        ((s = p * p) > n) ? (return findall(isprime)) :
+        foreach(x -> (isprime[x] = false), s:p:n)
     end
 end
 
