@@ -1,4 +1,4 @@
-import Base.Iterators: accumulate, filter, takewhile
+bash: line 1: bash:: command not found
 
 function fn(m, d, a, S)
     M = d * a - m
