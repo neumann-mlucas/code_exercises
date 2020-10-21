@@ -64,7 +64,7 @@ end
 
 function answer(samples)
     dice = collect(1:4)
-    rolls = (rand(dice, 2) for i in 1:samples)
+    rolls = (rand(dice, 2) for i = 1:samples)
     accumulate(move, rolls, init = state(0, 0, 0, 0)) .|>
     (p -> p.pos) |>
     hist |>
