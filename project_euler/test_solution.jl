@@ -93,12 +93,21 @@ Solutions = (
 ("euler_085.jl", "2772"),
 ("euler_086.jl", "1818"),
 ("euler_087.jl", "1097343"),
-("euler_088.jl", "7587457"),
+# ("euler_088.jl", "7587457"),
 ("euler_089.jl", "743"),
 ("euler_090.jl", "1217"),
+("euler_091.jl", "14234"),
+("euler_092.jl", "8581146"),
+("euler_093.jl", "1258"),
+("euler_094.jl", "518408346"),
+("euler_095.jl", "14316"),
+("euler_097.jl", "8739992577"),
+("euler_098.jl", "18769"),
+("euler_099.jl", "709"),
+("euler_100.jl", "756872327473"),
 )
 
-for (filename, solution) in Solutions[51:end]
+for (filename, solution) in Solutions[90:end]
 
     println("$filename ...")
     @time @test read(`julia src/$filename`, String) == solution
