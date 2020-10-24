@@ -3,5 +3,4 @@ function answer(lim)
     map(x -> fn(BigInt(x)), 1:100) |> sum
 end
 
-
 answer(1_000_000) |> print

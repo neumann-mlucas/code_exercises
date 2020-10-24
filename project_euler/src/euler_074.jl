@@ -1,4 +1,4 @@
-import Base.Iterators: accumulate, cycle, takewhile
+using Base.Iterators
 
 factorial_digits(n) = sum(factorial.(digits(n)))
 
@@ -19,7 +19,7 @@ function answer(lim)
     forbid = keys(d_cycles) |> Set
 
     gen_chain(n) =
-        accumulate((x, _) -> factorial_digits(x), cycle(0), init = n) |>
+        Iterators.accumulate((x, _) -> factorial_digits(x), cycle(0), init = n) |>
         iter -> takewhile(x -> !(x in forbid), iter) |> collect
 
     cycle_length(c) = (isempty(c)) ? 0 : last(c) |> factorial_digits |> x -> d_cycles[x]

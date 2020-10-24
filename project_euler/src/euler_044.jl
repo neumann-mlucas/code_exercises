@@ -13,5 +13,4 @@ function answer(lim)
     end
 end
 
-
 answer(1_000_000) |> print

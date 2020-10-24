@@ -1,4 +1,4 @@
-import Base.Iterators: flatten, takewhile
+using Base.Iterators
 
 function pentagonal(n)
     iter = zip(1:n, -1:-1:-n) |> flatten

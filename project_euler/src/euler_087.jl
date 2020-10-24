@@ -1,4 +1,4 @@
-import Base.Iterators: product
+using Base.Iterators
 
 is_prime(n) = all(x -> n % x != 0, 2:isqrt(n))
 

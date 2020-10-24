@@ -1,4 +1,4 @@
-import Base.Iterators: accumulate, countfrom, repeated, takewhile
+using Base.Iterators
 
 function gen_divtable(lim)
     list = [1 for i = 1:lim]
@@ -14,7 +14,7 @@ function answer(lim)
         predicate(x) = x != start && x != 1
 
         start = reduce((x, f) -> f(x), repeated(fn, 75), init = n)
-        accumulate((x, _) -> fn(x), countfrom(), init = start) |>
+        Iterators.accumulate((x, _) -> fn(x), countfrom(), init = start) |>
         acc -> takewhile(predicate, acc) |> collect
     end
     d = gen_divtable(lim)

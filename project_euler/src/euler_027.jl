@@ -1,4 +1,4 @@
-import Base.Iterators: product, takewhile
+using Base.Iterators
 
 is_prime(n) = n > 0 && all(x -> n % x != 0, 2:isqrt(n))
 quadratic(a, b) = fn(x) = x^2 + a * x + b
@@ -12,7 +12,6 @@ function answer(lim)
 
     product(-lim:lim, filter(is_prime, 1:lim)) |>
     x -> map(y -> fn(y...), x) |> maximum |> x -> x[2] * x[3]
-
 end
 
 answer(1000) |> print

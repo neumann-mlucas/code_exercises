@@ -1,5 +1,5 @@
 using Combinatorics
-import Base.Iterators: flatten, filter, first
+using Base.Iterators
 
 data = open("dat/euler_079.txt") do file
     readlines(file)

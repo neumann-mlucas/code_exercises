@@ -1,4 +1,4 @@
-import Base.Iterators: first, filter
+using Base.Iterators
 
 T(n::Integer) = (1, (n * (n + 1)) ÷ 2)
 S(n::Integer) = (2, (n * n))

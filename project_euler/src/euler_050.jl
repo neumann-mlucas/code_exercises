@@ -11,5 +11,4 @@ function answer(lim)
     accumulate(+, primes[p:p+l-1]) |> last
 end
 
-
 answer(1_000_000) |> print

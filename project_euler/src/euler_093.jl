@@ -1,5 +1,5 @@
 using Combinatorics
-import Base.Iterators: flatten, product, takewhile
+using Base.Iterators
 
 function apply(numbers, functions)
     f1, f2, f3 = functions

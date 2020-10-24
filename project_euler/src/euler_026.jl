@@ -7,7 +7,6 @@ function period(n)
     return 0
 end
 
-
 function answer(lim)
     map(period, 1:lim) |> argmax
 end

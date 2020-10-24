@@ -36,7 +36,6 @@ function answer(data)
         end
         sort!(Q, by = i -> cost(i))
     end
-
 end
 
 answer(data) |> print

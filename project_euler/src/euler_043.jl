@@ -1,5 +1,5 @@
-import Base.Iterators: filter, map, repeated
-import Random: shuffle
+using Base.Iterators
+using Random
 
 p0(n) = n[1] != 0
 p1(n) = n[4] % 2 == 0
@@ -17,8 +17,7 @@ dig2int(n) = map((x, y) -> x * 10^y, reverse(n), 0:10) |> sum
 # MONTE CARLO LIKE SEARCH
 function answer(lim)
     D = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-
-    filter(predicate, map(shuffle, repeated(D, lim))) |>
+    Iterators.filter(predicate, map(shuffle, repeated(D, lim))) |>
     x -> map(dig2int, x) |> unique |> sum
 end
 

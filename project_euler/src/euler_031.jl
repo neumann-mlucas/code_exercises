@@ -18,7 +18,6 @@ function recursive(target)
 
     helper(length(pennies), target)
     return count
-
 end
 
 function answer(target)

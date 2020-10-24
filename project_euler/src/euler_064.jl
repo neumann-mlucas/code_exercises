@@ -1,4 +1,4 @@
-import Base.Iterators: accumulate, filter, takewhile
+using Base.Iterators
 
 function fn(m, d, a, S)
     M = d * a - m

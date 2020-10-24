@@ -1,5 +1,4 @@
-import Base.Iterators.product
-import Base.Iterators.filter
+using Base.Iterators
 
 function is_pandigital(m, n)
     pandigital = string(m) * string(n) * string(m * n)
@@ -7,7 +6,7 @@ function is_pandigital(m, n)
 end
 
 function answer(lim)
-    filter(x -> is_pandigital(x...), product(1:lim, 1:lim)) |>
+    Iterators.filter(x -> is_pandigital(x...), product(1:lim, 1:lim)) |>
     x -> map(prod, x) |> x -> Set(x) |> sum
 end
 

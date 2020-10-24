@@ -1,4 +1,4 @@
-import Base.Iterators: dropwhile, filter, takewhile
+using Base.Iterators
 m(n) = ((n + 1) % 3 == 0) ? 2 * div(n + 1, 3) : 1 # 1,2,1,1,4,1,1,6...
 # Bad way to do recursion
 function answer(lim)

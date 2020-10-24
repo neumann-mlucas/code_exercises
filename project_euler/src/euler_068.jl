@@ -1,5 +1,5 @@
 using Combinatorics
-import Base.Iterators: flatten, filter
+using Base.Iterators
 
 function to_int(m, v)
     id = m .* transpose(v)
@@ -37,7 +37,8 @@ function answer()
         [1 0 0 0 0 0 0 1 0 1]
     ]
 
-    solutions = filter(x -> predicate(m, x), permutations(1:10)) .|> x -> to_int(m, x)
+    solutions =
+        Iterators.filter(x -> predicate(m, x), permutations(1:10)) .|> x -> to_int(m, x)
     maximum(n for n in solutions if ndigits(n) == 16)
 end
 

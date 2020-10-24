@@ -1,4 +1,4 @@
-import Base.Iterators: filter, first
+using Base.Iterators
 
 is_prime(n) = all(x -> n % x != 0, 2:isqrt(n))
 
@@ -12,6 +12,5 @@ function answer(lim)
     predicate(q) = all(x -> not_prime[x], q) && all(has_four_factors, q)
     filter(x -> predicate(x:x+3), 1:lim-4) |> first
 end
-
 
 answer(150_000) |> print

@@ -34,7 +34,6 @@ function int_to_roman(n)
     fn(pad_n...)
 end
 
-
 function answer(data)
     orinal = data |> join |> length
     int_to_roman.(roman_to_int.(data)) |> join |> length |> x -> orinal - x

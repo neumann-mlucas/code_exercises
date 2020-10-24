@@ -1,4 +1,4 @@
-using Base.Iterators: countfrom, flatten, takewhile
+using Base.Iterators
 
 sides(m, n) = [m^2 - n^2, 2 * m * n, m^2 + n^2]
 

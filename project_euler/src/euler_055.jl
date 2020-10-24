@@ -1,4 +1,4 @@
-import Base.Iterators: accumulate, drop
+using Base.Iterators
 
 is_palindrome(n) = string(n) == reverse(string(n))
 helper(n) = n + parse(BigInt, reverse(string(n)))
@@ -12,6 +12,5 @@ end
 function answer(lim)
     filter(is_lychrel, 1:lim) |> length
 end
-
 
 answer(10_000) |> print

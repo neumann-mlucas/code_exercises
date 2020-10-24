@@ -1,4 +1,4 @@
-import Base.Iterators: first, filter, product
+using Base.Iterators
 
 IDXS = [
     BitArray([1, 1, 0, 0, 0, 1]),
@@ -30,7 +30,7 @@ end
 function answer()
     global IDXS
     series = (gen_series(n...) for n in product(100:999, IDXS))
-    filter(predicate, series) |> first |> first
+    Iterators.filter(predicate, series) |> first |> first
 end
 
 answer() |> print

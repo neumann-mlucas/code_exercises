@@ -1,4 +1,4 @@
-import Base.Iterators: flatten
+using Base.Iterators
 
 in_range(n) = (1 // 3 < n < 1 // 2) ? n : 1 // 1
 fn(d) = (in_range(n // d) for n = div(d, 3):div(d, 2))

@@ -1,4 +1,4 @@
-import Base.Iterators: countfrom, takewhile
+using Base.Iterators
 
 helper(current::BigInt, next::BigInt, n::BigInt) =
     n == 0 ? current : helper(next, next + current, n - 1)

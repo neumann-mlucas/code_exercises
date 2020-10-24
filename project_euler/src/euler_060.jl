@@ -1,5 +1,5 @@
 using Combinatorics
-import Base.Iterators: filter, flatten
+using Base.Iterators
 
 ⋆(a::Integer, b::Integer) = a * 10^ndigits(b) + b
 
@@ -23,9 +23,7 @@ function hist(pairs)
     return d
 end
 
-
 function answer(lim)
-
     cat_isprime(m::Integer, n::Integer) = (m ⋆ n in primes) && (n ⋆ m in primes)
     predicate(v) = all(x -> cat_isprime(x...), combinations(v, 2))
 
@@ -33,7 +31,7 @@ function answer(lim)
     ff(a, b, s) = a in s && b in s
 
     primes = sieve(lim^2) |> Set
-    pairs = filter(x -> cat_isprime(x...), combinations(sieve(lim), 2)) |> collect
+    pairs = Iterators.filter(x -> cat_isprime(x...), combinations(sieve(lim), 2)) |> collect
     h = hist(pairs)
 
     for (a, b) in pairs
@@ -41,7 +39,7 @@ function answer(lim)
         if isempty(k) || length(k) < 3
             continue
         end
-        p = filter(predicate, combinations(k, 3))
+        p = Iterators.filter(predicate, combinations(k, 3))
         (!isempty(p)) ? (return sum([a b only(p)...])) : continue
     end
 end

@@ -1,4 +1,4 @@
-import Base.Iterators: filter
+using Base.Iterators
 
 struct state
     pos::Int
@@ -75,6 +75,5 @@ function answer(samples)
     string |>
     join
 end
-
 
 answer(5_000_000) |> print

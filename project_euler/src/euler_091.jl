@@ -1,4 +1,4 @@
-import Base.Iterators: filter, flatten, product
+using Base.Iterators
 
 function n_triangles(a, b)
     fn(x) = (a * (a - x)) / b + b

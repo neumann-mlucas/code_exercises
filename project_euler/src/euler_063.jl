@@ -1,4 +1,4 @@
-import Base.Iterators: dropwhile, filter, takewhile
+using Base.Iterators
 
 function fn(power)
     (BigInt(n)^power for n = 1:100_000) |>

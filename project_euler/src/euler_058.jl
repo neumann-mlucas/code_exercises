@@ -1,4 +1,4 @@
-import Base.Iterators: first, filter, flatten
+using Base.Iterators
 
 nth_stride(n) = 2 * n
 nth_start(n) = 1 + sum(map(x -> 4 * x, 2:2:nth_stride(n)))

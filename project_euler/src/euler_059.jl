@@ -1,4 +1,4 @@
-import Base.Iterators: filter, first, partition, product
+using Base.Iterators
 
 data = open("dat/euler_059.txt") do file
     readline(file)
@@ -11,7 +11,7 @@ predicate(msg) = occursin(" the ", msg)
 
 function answer(data)
     keys = product('a':'z', 'a':'z', 'a':'z')
-    msg = filter(predicate, (decode(data, k) for k in keys)) |> first
+    msg = Iterators.filter(predicate, (decode(data, k) for k in keys)) |> first
     collect(msg) .|> Int |> sum
 end
 

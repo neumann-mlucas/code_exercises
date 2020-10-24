@@ -1,4 +1,4 @@
-import Base.Iterators: flatten
+using Base.Iterators
 
 num_rectangles(m, n) = div(m * (m + 1) * n * (n + 1), 4)
 

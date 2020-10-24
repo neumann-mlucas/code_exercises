@@ -1,4 +1,4 @@
-import Base.Iterators: product
+using Base.Iterators
 
 fn(x, y) = (sum ∘ digits ∘ ^)(BigInt(x), y)
 
